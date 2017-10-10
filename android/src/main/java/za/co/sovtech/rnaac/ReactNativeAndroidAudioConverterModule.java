@@ -62,17 +62,17 @@ public class ReactNativeAndroidAudioConverterModule extends ReactContextBaseJava
     /**
      * Function to convert a given audio file to MP3 format
      *
-     * @param fileName        - input file name
+     * @param filePath        - input file name
      * @param errorCallback   - function called if the file could not be converted
      * @param successCallback - function called if the conversion was successful
      */
     @ReactMethod
-    public void convertAudioFile(String fileName,
+    public void convertAudioFile(String filePath,
                                  final Callback errorCallback,
                                  final Callback successCallback) {
-        File flacFile = new File(Environment.getExternalStorageDirectory(), fileName);
-        Log.d("Output file location", Environment.getExternalStorageDirectory().toString() + fileName);
 
+        File flacFile = new File(filePath);
+        Log.d("Output file location", filePath);
 
         IConvertCallback callback = new IConvertCallback() {
             @Override
